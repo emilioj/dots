@@ -1,0 +1,37 @@
+set folder=$HOME/.mail
+
+# List of mailboxes created by offlineimap to be checked for new mail
+#
+source "~/.dots/mail_stuff/mutt/muttrc_mailboxes"
+
+# Automatically log in to this mailbox at startup
+#
+set spoolfile=+udc/inbox
+
+# Configuration files to include
+#
+source ~/.dots/mail_stuff/mutt/muttrc_common
+source ~/.dots/mail_stuff/mutt/muttrc_colours
+source ~/.dots/mail_stuff/mutt/muttrc_pgp
+
+folder-hook +udc/.* "source ~/.dots/mail_stuff/mutt/muttprofile_udc"
+folder-hook +gmail/.* "source ~/.dots/mail_stuff/mutt/muttprofile_gmail"
+
+# Address book
+#
+# now aliases are combined with abook
+#
+source ~/.agenda
+set alias_file=~/.agenda
+# Abook
+set query_command= "abook --mutt-query '%s'"
+#macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+#bind editor        <Tab> complete-query
+
+# My addresses
+#
+alternates -group me '^emilioj@udc.es$' '^emilioj@udc.gal$' '^emilio.padron@udc.es$' '^emilio.padron@udc.gal$' '^emilioj@gpul.org$' '^emiliojpg@gmail.com$'
+
+# My mailing lists
+#
+source ~/.dots/mail_stuff/mutt/muttrc_mailinglists

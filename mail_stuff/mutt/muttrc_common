@@ -1,0 +1,127 @@
+# use msmtp to send outgoing mail to the mailserver
+# see ~/.msmtp for configuration
+#
+set sendmail="~/.dots/mail_stuff/msmtp/msmtpq"
+set sendmail_wait = -1
+
+set use_from=yes
+set realname="Emilio J. Padrón González"
+set from=emilioj@udc.es
+set envelope_from=yes
+
+#macro generic "<esc>1" ":set from=emilioj@udc.es"
+macro generic "<esc>1" ":source ~/.dots/mail_stuff/mutt/muttprofile_udc"
+#macro generic "<esc>2" ":set from=emiliojpg@gmail.com"
+macro generic "<esc>2" ":source ~/.dots/mail_stuff/mutt/muttprofile_gmail"
+#macro generic "<esc>3" ":set from=emilioj@gpul.org"
+macro generic "<esc>3" ":source ~/.dots/mail_stuff/mutt/muttprofile_gpul"
+macro generic "<esc>4" ":set from=emilioj@mundo-r.com"
+#macro generic "<esc>5" ":set from=mesanacional@equogalicia.org"
+macro generic "<esc>5" ":source ~/.dots/mail_stuff/mutt/muttprofile_mesaQG"
+#macro generic "<esc>6" ":set from=info@equogalicia.org"
+macro generic "<esc>6" ":source ~/.dots/mail_stuff/mutt/muttprofile_infoQG"
+#macro generic "<esc>7" ":set from=prensa@equogalicia.org"
+macro generic "<esc>7" ":source ~/.dots/mail_stuff/mutt/muttprofile_prensaQG"
+#macro generic "<esc>8" ":set from=ourense@equogalicia.org"
+macro generic "<esc>8" ":source ~/.dots/mail_stuff/mutt/muttprofile_ouQG"
+
+# subject to use when forwarding messages
+set forward_format="%s (fwd)"
+
+# Sort by threads and last-date-received:
+# will be gmail's style of threading, if the threading
+# was shown in the main display.
+#
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+# Moving mail from the spool?
+#
+set move=ask-yes
+set abort_unmodified=ask-yes
+
+# Editor: using vim
+#
+#set editor="vim -c 'set tw=70 et' -c 'set spell' '+/^$' " 
+#set edit_headers          # See the headers when editing
+
+ignore *   #ignorar todas las cabeceras
+unignore From To Subject CC BCC Date X-mailer User-Agent #mostrar solo esto
+
+set charset="utf-8"
+#set charset="iso-8859-15"
+#set send_charset="us-ascii:iso-8859-1:iso-8859-15:utf-8"
+set send_charset="utf-8"
+#set locale="es_ES"
+set allow_8bit
+set rfc2047_parameters # Decode filenames encoded in the deprecated RFC 2047
+                       # commonly produced by Ms Outlook, and some other MUAs
+
+#set ascii_chars=yes
+
+set reverse_name
+alternative_order text/enriched text/plain text
+auto_view text/html
+auto_view application/msword
+
+set print_command="muttprint -r ~/.dots/mail_stuff/mutt/muttprintrc"
+
+# change the sorting method based upon the mailbox being read
+#
+folder-hook . set sort=threads           # default: threads
+folder-hook . set sort_browser=reverse-date
+folder-hook . set sort_aux=last-date-received
+#folder-hook =inbox set sort=date-sent
+#folder-hook =mbox set sort=date-sent
+#folder-hook =sent set sort=date-sent
+
+# regular messages are forwared "inline". Ask if attachments
+#
+message-hook . "set mime_forward=no"
+message-hook "~h multipart" "set mime_forward=ask-yes"
+
+# index format: shows sender in messages from mailing lists, instead of the To: list feature
+set index_format='%4C %Z %{%b %d} %-15.15F %?M?(#%03M)&(%4c)? %s'
+
+# show number of messages in folders
+set mail_check_stats=yes
+set folder_format='%2C %t %N %4m(%3n) %F %2l %-8.8u %-8.8g %8s %d %f'
+
+# Add year field in index for mails in mbox
+folder-hook mbox "set index_format='%4C %Z %{%y %b %d} %-15.15L (%?l?%4l&%4c?) %s'"
+
+# TODO: improve all the hook stuff
+# Now, after this send-hook the config stay until folder-hook is executed
+send-hook ".*lists.gpul.org$" "source ~/.dots/mail_stuff/mutt/muttprofile_gpul"
+
+# Macros for marking new and old messages as read:
+macro index ,n "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<clear-flag>*" "Catchup all new messages"
+macro index ,o "<tag-pattern>~O<enter><tag-prefix><clear-flag>O<clear-flag>*" "Catchup all old messages"
+
+# Change default 'extract supported public key' binding
+bind index,pager \eK extract-keys
+
+# Sidebar bindings
+bind index,pager \Cj sidebar-next
+bind index,pager \Ck sidebar-prev
+bind index,pager \Co sidebar-open
+bind index,pager \Cv sidebar-toggle-visible
+
+set sidebar_visible=yes
+#set sidebar_width   = 24
+set sidebar_format='%B%?F? [%F]?%* %?N?%N/?%S'
+color sidebar_new yellow default
+
+set pager_index_lines=10
+macro pager "\e1"    "<enter-command>set pager_index_lines=1<enter>"      # Change PIL size
+macro pager "\e2"    "<enter-command>set pager_index_lines=2<enter>"      # Change PIL size
+macro pager "\e3"    "<enter-command>set pager_index_lines=3<enter>"      # Change PIL size
+macro pager "\e4"    "<enter-command>set pager_index_lines=4<enter>"      # Change PIL size
+macro pager "\e5"    "<enter-command>set pager_index_lines=5<enter>"      # Change PIL size
+macro pager "\e6"    "<enter-command>set pager_index_lines=6<enter>"      # Change PIL size
+macro pager "\e7"    "<enter-command>set pager_index_lines=7<enter>"      # Change PIL size
+macro pager "\e8"    "<enter-command>set pager_index_lines=8<enter>"      # Change PIL size
+macro pager "\e9"    "<enter-command>set pager_index_lines=9<enter>"      # Change PIL size
+macro pager "\e0"    "<enter-command>set pager_index_lines=0<enter>"      # Change PIL size
+
+#unset help

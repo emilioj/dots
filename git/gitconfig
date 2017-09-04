@@ -1,0 +1,13 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Emilio J. Padron
+	email = emilioj@udc.es
+[github]
+	user = emilioj
+	token = 864d7050278f1cda106b1f7201f141f6
+
+[diff "odf"]
+	textconv=odt2txt

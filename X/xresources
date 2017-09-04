@@ -1,0 +1,158 @@
+!{{{ XFT
+!Xft.dpi:       96
+!Xft.autohint: 0
+!Xft.lcdfilter:  lcddefault
+!Xft.hintstyle:  hintfull
+!Xft.hinting: 1
+Xft.antialias: 1
+!Xft.rgba: rgb
+!}}}
+
+!{{{ EMACS
+!
+Emacs.font: Inconsolata-10
+!}}}
+
+!{{{ URXVT
+!!
+!! General
+!URxvt.termName:			rxvt-unicode-256color
+!URxvt.visualBell:               false
+URxvt.urgentOnBell:		true
+!URxvt.mapAlert:			true
+URxvt.jumpScroll:               true
+URxvt.scrollBar:                false
+URxvt.scrollStyle:              plain
+URxvt.secondaryScroll:          true
+URxvt.scrollWithBuffer:         false
+URxvt.scrollTtyOutput:          false
+URxvt.scrollTtyKeypress:        true
+!URxvt.internalBorder:           5
+!URxvt.externalBorder:           0
+URxvt.mouseWheelScrollPage:     false
+URxvt.saveLines:		65535
+!
+! Extensions
+!URxvt.perl-lib:        /usr/lib/urxvt/perl/
+URxvt.perl-ext-common: default,matcher,searchable-scrollback,font-size
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.urlLauncher:     x-www-browser
+!URxvt.matcher.button:  1
+! Use matcher to open and list recent URLs
+!URxvt.keysym.C-Delete:  perl:matcher:last
+!URxvt.keysym.M-Delete:  perl:matcher:list
+!
+! Catch ugly URLs
+URxvt.cutchars:        '"'()*<>[]{|}
+!
+! Appearance
+URxvt.font:			xft:Inconsolata-10
+! Zenburn color-scheme 
+!
+!BLK Cursor
+#define _color0        #3f3f3f
+#define _color8        #709080
+
+!RED Tag
+#define _color1        #bc8383
+#define _color9        #cc9393
+
+!GRN SpecialKey
+#define _color2        #60b48a
+#define _color10       #7f9f7f
+
+!YEL Keyword
+#define _color3        #dfaf8f
+#define _color11       #f0dfaf
+
+!BLU Number
+#define _color4        #506070
+#define _color12       #94bff3
+
+!MAG Precondit
+#define _color5        #dc8cc3
+#define _color13       #ec93d3
+
+!CYN Float
+#define _color6        #8cd0d3
+#define _color14       #93e0e3
+
+!WHT Search
+#define _color7        #DCDCCC
+#define _color15       #ffffff
+
+!FMT Include, StatusLine, ErrorMsg
+#define _colorBD       #ffcfaf
+#define _colorUL       #c5f779
+#define _colorIT       #80d4aa
+
+!TXT Normal, Normal, Cursor
+#define _foreground    #dcdccc
+#define _background    #3f3f3f
+#define _cursorColor   #8faf9f
+
+URxvt*color0         : _color0
+URxvt*color1         : _color1
+URxvt*color2         : _color2
+URxvt*color3         : _color3
+URxvt*color4         : _color4
+URxvt*color5         : _color5
+URxvt*color6         : _color6
+URxvt*color7         : _color7
+URxvt*color8         : _color8
+URxvt*color9         : _color9
+URxvt*color10        : _color10
+URxvt*color11        : _color11
+URxvt*color12        : _color12
+URxvt*color13        : _color13
+URxvt*color14        : _color14
+URxvt*color15        : _color15
+URxvt*colorBD        : _colorBD
+URxvt*colorIT        : _colorIT
+URxvt*colorUL        : _colorUL
+URxvt*underlineColor : _colorUL
+URxvt*foreground     : _foreground
+URxvt*background     : _background
+URxvt*cursorColor    : _cursorColor
+!}}}
+
+!{{{ XTERM
+XTerm*bellIsUrgent:	true
+xterm*internalBorder:        0
+xterm*loginShell:         true
+xterm*scrollBar:         false
+xterm*cursorBlink:       false
+!xterm*geometry:         80x26
+xterm*saveLines:         65535
+xterm*dynamicColors:        on
+xterm*highlightSelection: true
+! Appearance
+xterm*utf8:            2
+xterm*eightBitInput:   true
+xterm*metaSendsEscape: true
+xterm*font:        terminus-12
+xterm*cursorColor: #DCDCCC
+! Zenburn
+xterm*background:  #3f3f3f
+xterm*foreground:  #dcdccc
+xterm*color0:      #1E2320
+xterm*color1:      #705050
+xterm*color2:      #60b48a
+xterm*color3:      #dfaf8f
+xterm*color4:      #506070
+xterm*color5:      #dc8cc3
+xterm*color6:      #8cd0d3
+xterm*color7:      #dcdccc
+xterm*color8:      #709080
+xterm*color9:      #dca3a3
+xterm*color10:     #c3bf9f
+xterm*color11:     #f0dfaf
+xterm*color12:     #94bff3
+xterm*color13:     #ec93d3
+xterm*color14:     #93e0e3
+xterm*color15:     #ffffff
+!}}}
+

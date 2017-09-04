@@ -1,0 +1,116 @@
+servers = (
+  {
+    address = "localhost";
+    chatnet = "local";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.oftc.net";
+    chatnet = "oftc";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_cert = "~/.irssi/certs/emilioj.pem";
+    ssl_verify = "yes";
+    ssl_cafile = "~/.irssi/certs/CAs.pem";
+    autoconnect = "yes";
+  },
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_cert = "~/.irssi/certs/emilioj.pem";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  local = { type = "IRC"; };
+  oftc = { type = "IRC"; };
+  freenode = { type = "IRC"; };
+};
+
+channels = (
+  { name = "#gpul"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#dudes"; chatnet = "oftc"; autojoin = "yes"; }
+);
+
+settings = {
+  core = {
+    real_name = "Emilio J. Padrón";
+    user_name = "emilioj";
+    nick = "emilioj";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+};
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "&bitlbee";
+        tag = "local";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#gpul";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#dudes";
+        tag = "oftc";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twitter_emiliojpg";
+        tag = "local";
+      }
+    );
+  };
+  6 = {
+    name = "twitter_QGal";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twitter_mesa.equogalici";
+        tag = "local";
+      }
+    );
+  };
+  7 = {
+    name = "#twitter_QOu";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twitter_equoourense@gma";
+        tag = "local";
+      }
+    );
+  };
+};
+mainwindows = { 5 = { first_line = "1"; lines = "55"; }; };

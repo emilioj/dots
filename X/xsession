@@ -1,0 +1,12 @@
+
+case $1 in
+*)
+	exec urxvtcd -e tmux new-session -t main&
+	exec emacs --daemon&
+	xset b off
+#	exec iceowl&
+	exec wicd-client -t&
+	exec x-window-manager
+	;;
+esac
+

@@ -1,0 +1,5 @@
+*~
+.password*
+.local_config.lua
+*.pyc
+muttrc_mailboxes

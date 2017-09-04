@@ -1,0 +1,32 @@
+# Set default values for all following accounts.
+defaults
+#tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.mail/msmtp.log
+
+# Example SMTP smarthost
+account myaccount
+auth login
+tls on
+host smtp.example.com
+port 587
+from username@example.com
+user username@example.com
+passwordeval cat ~/.dots/mail_stuff/msmtp/.password.SMTP.example
+tls_fingerprint xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+
+# Gmail SMTP smarthost 
+account gmail
+auth on
+tls on
+host smtp.gmail.com
+port 587
+from username@gmail.com
+user username@gmail.com
+#password secret
+#passwordeval gpg -d .password.SMTP.gmail.gpg
+passwordeval cat ~/.dots/mail_stuff/msmtp/.password.SMTP.gmail
+#tls_trust_file /usr/share/ca-certificates/mozilla/Equifax_Secure_CA.crt
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+# Set a default account
+account default : myaccount

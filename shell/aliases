@@ -1,0 +1,15 @@
+alias getmail="/usr/bin/offlineimap -o -u blinkenlights -c ${HOME}/.offlineimaprc/offlineimap.conf"
+alias filtermail="echo 'imapfilter -c ${HOME}/.imapfilter/config.lua'; imapfilter -c ${HOME}/.imapfilter/config.lua"
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+
+#attach to a emacs-daemon session
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+

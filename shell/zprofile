@@ -1,0 +1,30 @@
+#export LANG=en_US.utf8
+#export LC_ALL=en_US.utf8
+
+#PATH=/opt/mpi/bin:/opt/cuda/bin:$PATH
+#PATH=/opt/cuda/bin:$PATH:.
+PATH=${HOME}/bin:$PATH
+#PATH=$PATH:.
+
+#export LD_LIBRARY_PATH=/opt/mpi/lib:/opt/cuda/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+
+#Intel compiler and debugger
+#source /opt/intel/cce/10.1.017/bin/iccvars.sh
+#source /opt/intel/idbe/10.1.017/bin/idbvars.sh
+
+#export NNTPSERVER="news.udc.es"
+#export NNTPSERVER="talia.mad.ttd.net"
+#export NNTPSERVER="news.readfreenews.net"
+#export NNTPSERVER="news-8.escomposlinux.org"
+#export NNTPSERVER="ficbbs.org:9999"
+#export NNTPSERVER="localhost"
+#export NNTPSERVER="news-13.escomposlinux.org"
+
+#FiCBBS stuff
+#FIDO="/home/emilioj/.ficbbs"
+#GOLDED="/home/emilioj/.ficbbs/golded"
+#FIDOCONFIG="/home/emilioj/.ficbbs/config"
+#export FIDO FIDOCONFIG GOLDED
+#alias ficbbs='/usr/sbin/binkd -p -P 2:348/105 $FIDO/binkd.cfg'
+

@@ -1,0 +1,17 @@
+-- to be filled-out and renamed as .local_config.lua
+
+
+account1 = IMAP {
+    server = '',
+    username = '',
+    password = '',
+    ssl = 'ssl23',
+}
+
+account2 = IMAP {
+    server = '',
+    username = '',
+    password = '',
+    ssl = '',
+}
+
