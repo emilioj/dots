@@ -12,6 +12,9 @@ boot time.
 To start X with my user automatically at boot now I'm using [nodm](https://github.com/spanezz/nodm)
 in my systemd Debian system.
 
+To get my screen locked every time my machine goes to sleep I use this recipe
+based on a systemd service and i3lock: https://wiki.debian.org/ScreenLockingOnSleep
+
 ## Window manager: [awesome](https://awesomewm.org)
 
 ## Editors: [emacs](https://www.gnu.org/software/emacs) & [vim](https://vim.sourceforge.io)
