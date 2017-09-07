@@ -19,7 +19,7 @@ require("obvious.battery")
 mybattery = obvious.battery()
 
 require("obvious.volume_alsa")
-myvolume = obvious.volume_alsa(0,"Master")
+myvolume = obvious.volume_alsa()
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -368,6 +368,8 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioMute", function ()
 --       awful.util.spawn("amixer sset Master toggle", false) end),
        obvious.volume_alsa.mute(0,"Master") end),
+    awful.key({ }, "XF86AudioMicMute", function ()
+       obvious.volume_alsa.mute(0,"Capture") end),
 
    -- Control mpd
    awful.key({ }, "XF86AudioPrev", function ()
