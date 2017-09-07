@@ -3,8 +3,8 @@
 	status = auto
 	branch = auto
 [user]
-	name = Emilio J. Padron
-	email = emilioj@udc.es
+	name = Emilio J. Padrón González
+	email = emilioj@udc.gal
 [github]
 	user = emilioj
 	token = 864d7050278f1cda106b1f7201f141f6
