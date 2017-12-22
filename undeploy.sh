@@ -6,6 +6,9 @@
 rm ~/.mailrc
 rm ~/.mailcap
 rm ~/.msmtprc
+rm ~/bin/msmtpq
+rm ~/bin/msmtp-queue
+rmdir --ignore-fail-on-non-empty ~/bin
 rm ~/.muttrc
 rm ~/.imapfilter
 rm ~/.offlineimaprc
@@ -24,6 +27,7 @@ rm ~/.tmux.conf
 
 #awesome window manager and X stuff
 rm ~/.config/awesome
+rmdir --ignore-fail-on-non-empty ~/.config
 rm ~/.xsession
 rm ~/.Xresources
 

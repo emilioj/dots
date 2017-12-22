@@ -4,6 +4,7 @@
 ln -s `pwd`/mail_stuff/mail.rc ~/.mailrc
 ln -s `pwd`/mail_stuff/mailcap ~/.mailcap
 ln -s `pwd`/mail_stuff/msmtp/msmtprc ~/.msmtprc
+mkdir -p ~/bin
 ln -s `pwd`/mail_stuff/msmtp/msmtpq ~/bin/
 ln -s `pwd`/mail_stuff/msmtp/msmtp-queue ~/bin/
 ln -s `pwd`/mail_stuff/mutt/muttrc ~/.muttrc
@@ -23,6 +24,7 @@ ln -s `pwd`/shell/aliases ~/.aliases
 ln -s `pwd`/tmux.conf ~/.tmux.conf
 
 #awesome window manager and X stuff
+mkdir -p ~/.config
 ln -s `pwd`/X/awesome ~/.config/awesome
 ln -s `pwd`/X/xsession ~/.xsession
 ln -s `pwd`/X/xresources ~/.Xresources
