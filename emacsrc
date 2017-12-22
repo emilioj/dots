@@ -17,18 +17,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(tool-bar-mode nil)
- '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
  '(column-number-mode t)
  '(delete-selection-mode t)
  '(frame-title-format (quote ("emacs - %b " "[%f]")) t)
  '(global-whitespace-mode t)
  '(inhibit-startup-screen t)
+ '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (calfw calfw-gcal engine-mode zenburn-theme org-babel-eval-in-repl org ess auctex)))
+    (isend-mode realgud engine-mode zenburn-theme org-babel-eval-in-repl org ess auctex)))
+ '(scroll-bar-mode nil)
  '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(whitespace-style (quote (face empty tabs trailing lines-tail))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -67,8 +67,6 @@
   "https://github.com/search?ref=simplesearch&q=%s"
   :keybinding "h")
 
-(require 'calfw-org)
-
 ;; ORG-MODE STUFF
 
 ;; # Default key bindings for global org functions
@@ -86,17 +84,3 @@
 ;; O-BLOG STUFF
 (add-to-list 'load-path "/usr/local/src/o-blog")
 (require 'o-blog)
-
-;; ORG-PAGE STUFF
-
-;; (require 'org-page)
-;; (setq op/repository-directory "~/org/www")
-;; (setq op/site-domain "http://gac.udc.es/~emilioj")
-;; ;;; for commenting, you can choose either disqus or duoshuo
-;; (setq op/personal-disqus-shortname "emiliojpg")
-;; ;;; the configuration below are optional
-;; ;;(setq op/personal-google-analytics-id "your_google_analytics_id")
-;; (setq op/personal-github-link "https://github.com/emilioj")
-;; (setq op/site-main-title "emilioj's home page")
-;; (setq op/site-sub-title "Research, teaching & personal")
-
