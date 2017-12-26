@@ -50,6 +50,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
+beautiful.font = "DejaVu Sans 11"
 
 -- This is used later as the default terminal and editor to run.
 --terminal = "xterm"

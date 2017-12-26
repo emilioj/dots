@@ -10,7 +10,7 @@ Xft.antialias: 1
 
 !{{{ EMACS
 !
-Emacs.font: Inconsolata-10
+Emacs.font: Inconsolata-16
 !}}}
 
 !{{{ URXVT
@@ -49,7 +49,7 @@ URxvt.urlLauncher:     x-www-browser
 URxvt.cutchars:        '"'()*<>[]{|}
 !
 ! Appearance
-URxvt.font:			xft:Inconsolata-10
+URxvt.font:			xft:Inconsolata-16
 ! Zenburn color-scheme 
 !
 !BLK Cursor
