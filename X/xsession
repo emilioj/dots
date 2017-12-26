@@ -1,8 +1,18 @@
 
 case $1 in
 *)
-	exec urxvtcd -e tmux new-session -t main&
+
+	# spawn a terminal emulator with tmux
+	#
+	# my /etc/alternatives/x-terminal-emulator usually points to
+	# /usr/bin/urxvt (in the past I used to employ /usr/bin/urxvtcd)
+	#
+	exec x-terminal-emulator -e tmux new-session -t main&
+
+	# spawn an emacs daemon
+	#
 	exec emacs --daemon&
+
 	xset b off
 #	exec iceowl&
 	exec wicd-client -t&
