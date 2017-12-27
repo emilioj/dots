@@ -17,6 +17,8 @@ based on a systemd service and i3lock: https://wiki.debian.org/ScreenLockingOnSl
 
 ## Window manager: [awesome](https://awesomewm.org)
 
+## Terminal emulator: [rxvt-unicode-256color](http://software.schmorp.de/pkg/rxvt-unicode.html) & [tmux](https://github.com/tmux/tmux/wiki)
+
 ## Editors: [emacs](https://www.gnu.org/software/emacs) & [vim](https://vim.sourceforge.io)
 
 
