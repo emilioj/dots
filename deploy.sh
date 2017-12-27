@@ -28,6 +28,7 @@ mkdir -p ~/.config
 ln -s `pwd`/X/awesome ~/.config/awesome
 ln -s `pwd`/X/xsession ~/.xsession
 ln -s `pwd`/X/xresources ~/.Xresources
+ln -s `pwd`/X/xdg/user-dirs.dirs ~/.config/user-dirs.dirs
 
 #git
 ln -s `pwd`/git/gitconfig ~/.gitconfig
