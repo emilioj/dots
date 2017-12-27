@@ -10,14 +10,14 @@ anymore in my single-user laptop: I type a password to decrypt my files every
 boot time.
 
 To start X with my user automatically at boot now I'm using [nodm](https://github.com/spanezz/nodm)
-in my systemd Debian system.
+in my systemd __Debian__ system.
 
 To get my screen locked every time my machine goes to sleep I use this recipe
 based on a systemd service and i3lock: https://wiki.debian.org/ScreenLockingOnSleep
 
 ## Window manager: [awesome](https://awesomewm.org)
 
-## Terminal emulator: [rxvt-unicode-256color](http://software.schmorp.de/pkg/rxvt-unicode.html) & [tmux](https://github.com/tmux/tmux/wiki)
+## Terminal emulator: [rxvt-unicode-256color](http://software.schmorp.de/pkg/rxvt-unicode.html) + [tmux](https://github.com/tmux/tmux/wiki)
 
 ## Editors: [emacs](https://www.gnu.org/software/emacs) & [vim](https://vim.sourceforge.io)
 
