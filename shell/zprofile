@@ -1,19 +1,8 @@
 #export LANG=en_US.utf8
 #export LC_ALL=en_US.utf8
 
-#PATH=/opt/mpi/bin:/opt/cuda/bin:$PATH
-#PATH=/opt/cuda/bin:$PATH:.
-#PATH=${HOME}/bin:$PATH
 export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=${HOME}/bin:$PY_USER_BIN:$PATH
-#PATH=$PATH:.
-
-#export LD_LIBRARY_PATH=/opt/mpi/lib:/opt/cuda/lib:$LD_LIBRARY_PATH
-#export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
-
-#Intel compiler and debugger
-#source /opt/intel/cce/10.1.017/bin/iccvars.sh
-#source /opt/intel/idbe/10.1.017/bin/idbvars.sh
+export PATH=${HOME}/.bin:$PY_USER_BIN:$PATH
 
 #export NNTPSERVER="news.udc.es"
 #export NNTPSERVER="talia.mad.ttd.net"

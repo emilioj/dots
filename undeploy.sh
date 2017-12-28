@@ -6,8 +6,8 @@
 rm ~/.mailrc
 rm ~/.mailcap
 rm ~/.msmtprc
-rm ~/bin/msmtpq
-rm ~/bin/msmtp-queue
+rm ~/.bin/msmtpq
+rm ~/.bin/msmtp-queue
 rmdir --ignore-fail-on-non-empty ~/bin
 rm ~/.muttrc
 rm ~/.imapfilter

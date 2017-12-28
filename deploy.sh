@@ -4,9 +4,9 @@
 ln -s `pwd`/mail_stuff/mail.rc ~/.mailrc
 ln -s `pwd`/mail_stuff/mailcap ~/.mailcap
 ln -s `pwd`/mail_stuff/msmtp/msmtprc ~/.msmtprc
-mkdir -p ~/bin
-ln -s `pwd`/mail_stuff/msmtp/msmtpq ~/bin/
-ln -s `pwd`/mail_stuff/msmtp/msmtp-queue ~/bin/
+mkdir -p ~/.bin
+ln -s `pwd`/mail_stuff/msmtp/msmtpq ~/.bin/
+ln -s `pwd`/mail_stuff/msmtp/msmtp-queue ~/.bin/
 ln -s `pwd`/mail_stuff/mutt/muttrc ~/.muttrc
 ln -s `pwd`/mail_stuff/imapfilter ~/.imapfilter
 ln -s `pwd`/mail_stuff/offlineimap ~/.offlineimaprc
