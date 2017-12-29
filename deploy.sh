@@ -12,6 +12,8 @@ ln -s `pwd`/mail_stuff/imapfilter ~/.imapfilter
 ln -s `pwd`/mail_stuff/offlineimap ~/.offlineimaprc
 
 #editors
+mkdir -p ~/.config/nvim
+ln -s `pwd`/vimrc ~/.config/nvim/init.vim
 ln -s `pwd`/vimrc ~/.vimrc
 ln -s `pwd`/emacsrc ~/.emacs
 

@@ -15,6 +15,7 @@ rm ~/.offlineimaprc
 
 #editors
 rm ~/.vimrc
+rm ~/.config/nvim/init.vim
 rm ~/.emacs
 
 #shell
