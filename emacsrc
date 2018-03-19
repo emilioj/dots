@@ -10,8 +10,6 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(load-theme 'zenburn t)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -23,9 +21,10 @@
  '(global-whitespace-mode t)
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
+ '(org-agenda-files (quote ("~/teaching/igm/students.org" "~/self/org")))
  '(package-selected-packages
    (quote
-    (isend-mode realgud engine-mode zenburn-theme org-babel-eval-in-repl org ess auctex)))
+    (yaml-mode magit pdf-tools auctex-latexmk nov isend-mode realgud engine-mode zenburn-theme org-babel-eval-in-repl org ess auctex)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -39,6 +38,26 @@
 
 (setq-default ispell-program-name "hunspell")
 
+(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+
+;; Load pdf-tools when opening a pdf file
+(pdf-tools-install)
+
+;; Use pdf-tools to open PDF files
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
+
+;;(global-set-key "j" 'pdf-view-next-line-or-next-page)
+;;(global-set-key "k" 'pdf-view-previous-line-or-previous-page)
+(define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+(define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+
+;; Update PDF buffers after successful LaTeX runs
+(add-hook 'TeX-after-compilation-finished-functions
+           #'TeX-revert-document-buffer)
+
+(load-theme 'zenburn t)
+
 ;; ENGINE-MODE STUFf
 ;; C-x / keybinding for launching the different engines
 
@@ -46,6 +65,9 @@
 (engine-mode t)
 
 (setq engine/browser-function 'eww-browse-url)
+
+;; Search functions prefixed with "C-x /"
+;; => "C-X / s" search selection (or input) in stack overflow
 
 (defengine duckduckgo
   "https://duckduckgo.com/?q=%s"
@@ -75,8 +97,8 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(setq org-directory "~/org/")
-(setq org-agenda-files '("~/org"))
+(setq org-directory "~/self/org/")
+(setq org-agenda-files '("~/self/org" "~/teaching/igm/students.org" ))
 
 ;; org-capture
 (setq org-default-notes-file (concat org-directory "notes.org"))
