@@ -4,61 +4,83 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; This must come before configurations of installed packages
 (package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(delete-selection-mode t)
- '(frame-title-format (quote ("emacs - %b " "[%f]")) t)
- '(global-whitespace-mode t)
- '(inhibit-startup-screen t)
- '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/teaching/igm/students.org" "~/self/org")))
- '(package-selected-packages
-   (quote
-    (yaml-mode magit pdf-tools auctex-latexmk nov isend-mode realgud engine-mode zenburn-theme org-babel-eval-in-repl org ess auctex)))
- '(scroll-bar-mode nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil)
- '(whitespace-style (quote (face empty tabs trailing lines-tail))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; Avoid splash screen
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
 
-(setq-default ispell-program-name "hunspell")
+(load-theme 'zenburn t)
 
-(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+;; I do not like keeping these bars (menu, tool, scroll)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
 
-;; Load pdf-tools when opening a pdf file
-(pdf-tools-install)
+(column-number-mode t) ;; show column number along with the row
+(delete-selection-mode t) ;; replace active region just by typing text
+(show-paren-mode t) ;; see matching pairs of patentheses and so on
+
+(setq-default indent-tabs-mode nil) ;; avoid tabs and use spaces instead
+
+(setq-default ispell-program-name "hunspell") ;; hunspell for spelling
+
+;; Highlighting tabs, trailing whitespaces and long lines
+;; (setq whitespace-style '(face spaces tabs newline space-mark tab-mark newline-mark ))
+(setq whitespace-style '(face empty tabs tab-mark trailing lines-tail))
+(global-whitespace-mode t)
+
+;; Set a useful title for the buffer
+;; (setq frame-title-format
+;;       '(buffer-file-name "%f"
+;;                          (dired-directory dired-directory "%b")))
+(setq frame-title-format
+      '("emacs - %b " "[%f]"))
+
+
+;; latex and pdf-tools stuff
+(add-hook 'LaTeX-mode-hook 'auto-fill-mode) ;; break long lines in latex bufs
+
+(add-hook 'doc-view-mode-hook 'pdf-tools-install) ;; load pdf-tools
 
 ;; Use pdf-tools to open PDF files
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-source-correlate-start-server t)
 
-;;(global-set-key "j" 'pdf-view-next-line-or-next-page)
-;;(global-set-key "k" 'pdf-view-previous-line-or-previous-page)
-(define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
-(define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+;; Use j/k to traverse pdf in a vim-like way
+(defun pdf-vimlike-keys ()
+  (local-set-key (kbd "j") 'pdf-view-next-line-or-next-page)
+  (local-set-key (kbd "k") 'pdf-view-previous-line-or-previous-page)
+  )
 
-;; Update PDF buffers after successful LaTeX runs
+(add-hook 'pdf-view-mode-hook 'pdf-vimlike-keys)
+
+;; update PDF buffers after successful LaTeX runs
 (add-hook 'TeX-after-compilation-finished-functions
-           #'TeX-revert-document-buffer)
+          #'TeX-revert-document-buffer)
 
-(load-theme 'zenburn t)
 
-;; ENGINE-MODE STUFf
+;; org-mode stuff
+
+;; Default key bindings for global org functions
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+
+(setq org-directory "~/org/")
+(setq org-agenda-files '("~/org"))
+
+;; org-capture
+(setq org-default-notes-file (concat org-directory "notes.org"))
+
+;; o-blog stuff
+(add-to-list 'load-path "/usr/local/src/o-blog")
+(require 'o-blog)
+
+
+;; engine-mode stuff
 ;; C-x / keybinding for launching the different engines
 
 (require 'engine-mode)
@@ -89,20 +111,7 @@
   "https://github.com/search?ref=simplesearch&q=%s"
   :keybinding "h")
 
-;; ORG-MODE STUFF
 
-;; # Default key bindings for global org functions
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
-
-(setq org-directory "~/self/org/")
-(setq org-agenda-files '("~/self/org" "~/teaching/igm/students.org" ))
-
-;; org-capture
-(setq org-default-notes-file (concat org-directory "notes.org"))
-
-;; O-BLOG STUFF
-(add-to-list 'load-path "/usr/local/src/o-blog")
-(require 'o-blog)
+;; custom stuff
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
