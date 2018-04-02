@@ -9,8 +9,10 @@ Since I use an encrypted file system, I do not need a display manager (eg. xdm)
 anymore in my single-user laptop: I type a password to decrypt my files every
 boot time.
 
-To start X with my user automatically at boot now I'm using [nodm](https://github.com/spanezz/nodm)
-in my systemd __Debian__ system.
+To start X with my user automatically at boot I was using [nodm](https://github.com/spanezz/nodm)
+in my systemd __Debian__ system. Now, since nodm is no longer maintained I'm using
+[lightdm](https://www.freedesktop.org/wiki/Software/LightDM/) with the
+built-in [autologin feature](https://wiki.debian.org/LightDM#Enable_autologin).
 
 To get my screen locked every time my machine goes to sleep I use this recipe
 based on a systemd service and i3lock: https://wiki.debian.org/ScreenLockingOnSleep
