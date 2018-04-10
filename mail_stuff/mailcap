@@ -1,8 +1,5 @@
-#text/html;			links2 %s; nametemplate=%s.html
-#text/html;			links2 -dump %s; nametemplate=%s.html; copiousoutput
-text/html;			w3m %s; nametemplate=%s.html
-text/html;			w3m -dump %s; nametemplate=%s.html; copiousoutput
-#text/html			w3m -I 'UTF-8' -dump -T text/html %s; nametemplate=%s.html; copiousoutput
+text/html;			links -codepage UTF-8 %s; nametemplate=%s.html
+text/html;			links -dump -html-assume-codepage UTF-8 %s; nametemplate=%s.html; copiousoutput
 #application/pdf;		pdftotext %s -enc Latin1 -; copiousoutput; print=lp
 #application/pdf;		pdftotext %s -; copiousoutput; print=lp
 application/pdf;		pdftohtml -q -stdout %s | w3m -T text/html; copiousoutput
